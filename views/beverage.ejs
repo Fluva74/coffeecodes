@@ -1,0 +1,63 @@
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="mt-4">Starbucks Coffee Club</h1>
+      <h2 class="text-center mb-3">Drink Selection</h2>
+      <p class="lead mb-3">Welcome</p>
+      <form action="/users/beverage" method="POST">
+        <div class="form-group">
+          <label for="name">What Size Of Beverage</label>
+          <input
+            type="size"
+            id="size"
+            name="size"
+            class="form-control"
+            placeholder="Beverage Size"
+            value="<%= typeof size != 'undefined' ?
+          size : '' %>"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="beverage"
+            >What is the name of the beverage you would like?</label
+          >
+          <input
+            type="beverage"
+            id="beverage"
+            name="beverage"
+            class="form-control"
+            placeholder="Beverage Name"
+            value="<%= typeof beverage != 'undefined' ? beverage : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="time"
+            >Any special instructions for your beverage? Extra Whipped Cream, no
+            Cinnamon, etc.</label
+          >
+          <input
+            type="custom"
+            id="custom"
+            name="custom"
+            class="form-control"
+            placeholder="Enter Custom Instructions"
+            value="<%= typeof custom != 'undefined' ? custom : '' %>"
+          />
+        </div>
+
+        <br />
+        <button
+          type="submit"
+          class="btn btn-success btn-block"
+          href="/users/selection"
+        >
+          Enjoy
+        </button>
+      </form>
+      <br />
+
+      <a href="/users/logout" class="btn btn-secondary">Logout</a>
+    </div>
+  </div>
+</div>
