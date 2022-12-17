@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  beverage: {
-    type: String,
-  },
   name: {
     type: String,
     required: true,
@@ -16,21 +13,17 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
-    default: Date.now,
+  beverage: {
+    type: String,
+    required: true,
   },
   size: {
     type: String,
-  },
-  date: {
-    type: String,
+    required: true,
   },
   custom: {
     type: String,
-  },
-  price: {
-    type: Number,
+    required: true,
   },
 });
 

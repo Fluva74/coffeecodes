@@ -50,6 +50,17 @@
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
           />
         </div>
+        <div class="form-group">
+          <label for="beverage">What Beverage Would You Like?</label>
+          <input
+            type="beverage"
+            id="beverage"
+            name="beverage"
+            class="form-control"
+            placeholder="Beverage Name"
+            value="<%= typeof beverage != 'undefined' ? beverage : '' %>"
+          />
+        </div>
         <br />
         <button type="submit" class="btn btn-success btn-block">
           Register

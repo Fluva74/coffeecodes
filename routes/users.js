@@ -53,10 +53,19 @@ router.post("/beverage", ensureAuthenticated, async (req, res) => {
 
 // Register
 router.post("/register", (req, res) => {
-  const { name, username, password, password2 } = req.body;
+  const { name, username, password, password2, beverage, size, custom } =
+    req.body;
   let errors = [];
 
-  if (!name || !username || !password || !password2) {
+  if (
+    !name ||
+    !username ||
+    !password ||
+    !password2 ||
+    !beverage ||
+    !size ||
+    !custom
+  ) {
     errors.push({ msg: "Please enter all fields" });
   }
 
@@ -71,6 +80,9 @@ router.post("/register", (req, res) => {
       username,
       password,
       password2,
+      beverage,
+      size,
+      custom,
     });
   } else {
     User.findOne({ username: username }).then((user) => {
@@ -82,12 +94,18 @@ router.post("/register", (req, res) => {
           username,
           password,
           password2,
+          beverage,
+          size,
+          custom,
         });
       } else {
         const newUser = new User({
           name,
           username,
           password,
+          beverage,
+          size,
+          custom,
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -120,10 +138,10 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-router.post("/beverage", (req, res, next) => {
+router.post("/register", (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/selection",
-    failureRedirect: "/users/beverage",
+    failureRedirect: "/users/register",
     failureFlash: true,
   })(req, res, next);
 });
